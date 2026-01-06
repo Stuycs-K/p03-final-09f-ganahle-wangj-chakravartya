@@ -16,6 +16,12 @@ First, the client will connect, and upon another player's connection to the serv
 
 Our program will utilize Inter-Process Communication (IPC) via sockets to allow for multiplayer, and use named pipes to communicate information between the clients and the server. We will be breaking the project down into both c and h files, for the client, server, and networking, and we will divide ourselves by splitting the different files/features between us. I will work on the client, Jophy will work on the server and the game, and Aritro will work on the networking. We will utilize a make compile to generate both the server and client.
 
+Will use:
+- Allocating memory
+- Semaphores
+- Pipes (named and unnamed)
+- Sockets
+
 # Intended pacing:
 
 -Skeleton/Pseudocode done by end of 1/6
