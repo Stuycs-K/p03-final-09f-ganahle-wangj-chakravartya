@@ -2,27 +2,27 @@
 
 ## Group Members:
 
-names here.(CHANGE THIS!!!!!)
-       
+Edgar Ganahl, Jophy Wang, Aritro Chakravarty
+
 # Intentions:
 
-A statement of the problem you are solving and/or a high level description of the project. (CHANGE THIS!!!!!)
-    
+We plan on making a game called Higher or Lower, where one client chooses a number from 1-10, the server picks a random number within the same range, and then a second client has to guess whether the number of client #1 was above or below the number chosen by the computer.
+
 # Intended usage:
 
-A description as to how the project will be used (describe the user interface). (CHANGE THIS!!!!!)
-  
+First, the client will connect, and upon another player's connection to the server, they will be prompted to accept a match via typing Y/N on their computer and return. Then, one of the players (randomly selected) will pick a random number from the range, and upon entering, the server will pick a random number from the range and the other player will have to guess as to whether the computer's number is above or below or equal to the first players' by clicking Y/N on their computer and entering.
+
 # Technical Details:
 
-(CHANGE THIS!!!!!)
+Our program will utilize Inter-Process Communication (IPC) via sockets to allow for multiplayer, and use named pipes to communicate information between the clients and the server. We will be breaking the project down into both c and h files, for the client, server, and networking, and we will divide ourselves by splitting the different files/features between us. I will work on the client, Jophy will work on the server and the game, and Aritro will work on the networking. We will utilize a make compile to generate both the server and client.
 
-A description of your technical design. This should include: 
-   
-How you will be using the topics covered in class in the project.
-     
-How you are breaking down the project and who is responsible for which parts.
-  
-    
 # Intended pacing:
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+-Skeleton/Pseudocode done by end of 1/6
+-Begin working individually on client/server/networking/game
+-Game should be complete by end of 1/7
+-Client/server/networking done by end of 1/7
+-Put everything together 1/8 and test
+-Debug MVP on 1/9 and make video over weekend
+-Add high score tracking and streak tracking on 1/12 + 1/13
+-Think of other ideas
