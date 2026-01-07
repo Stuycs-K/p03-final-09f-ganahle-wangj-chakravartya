@@ -1,15 +1,19 @@
-notDefault:
-	@echo "Insufficient args. "
+all: client server
 
-compile: server client
+client: client.o networking.o
+	@gcc -o client client.o networking.o
 
-server: server.c networking.c networking.h game.c game.h
-	@gcc -Wall -Wextra -std=c11 server.c networking.c game.c -o server
+server: server.o networking.o
+	@gcc -o server server.o networking.o
 
-client: client.c networking.c networking.h game.c game.h
-	@gcc -Wall -Wextra -std=c11 client.c networking.c game.c -o client
+client.o: client.c networking.h
+	@gcc -c client.c
+
+server.o: server.c networking.h
+	@gcc -c server.c
+
+networking.o: networking.c networking.h
+	@gcc -c networking.c
 
 clean:
 	@rm -f server client *.o
-
-.PHONY: notDefault compile clean

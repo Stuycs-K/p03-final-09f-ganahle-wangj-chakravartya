@@ -19,7 +19,7 @@ int server_setup() {
   //setup structs for getaddrinfo
   struct addrinfo * hints, * results;//results is allocated in getaddrinfo
 
-  hints = calloc(1,sizeof(struct addrinfo));
+  memset(&hints, 0, sizeof(hints));
   hints->ai_family = AF_INET;
   hints->ai_socktype = SOCK_STREAM; //TCP socket
   hints->ai_flags = AI_PASSIVE; //only needed on server
@@ -77,7 +77,7 @@ int server_tcp_handshake(int listen_socket){
 int client_tcp_handshake(char * server_address) {
     //getaddrinfo
     struct addrinfo * hints, * results;//results is allocated in getaddrinfo
-    hints = calloc(1,sizeof(struct addrinfo));
+    memset(&hints, 0, sizeof(hints));
     hints->ai_family = AF_INET;
     hints->ai_socktype = SOCK_STREAM; //TCP socket
     getaddrinfo(server_address, PORT, hints, &results);
