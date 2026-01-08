@@ -20,3 +20,5 @@ This document must be updated daily every time you finish a work session.
 ### 2026-01-07:
 - Made MVP branch (30 sec)
 - Copied stuff from server branch into this branch (5 min).
+--------------------------- CLASS ENDED -------------------------------
+- Tried to fix definition errors in server.c and client.c. Didn't succeed yet... (15 min)

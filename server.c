@@ -1,13 +1,15 @@
 #include "networking.h"
 
 void subserver_logic(int client_socket) {
-  int is_it_picked=0; //boolean to make sure only picked when not picked
-  char buffer[BUFFER_SIZE];
-  if (!is_it_picked){
-    send(client_socket, MSG_WAIT "\n", strlen(MSG_WAIT), 0); //tells client to wait at start, changed to incorporate message from client
-    is_it_picked=1;
-  }
 
+  int is_it_picked = 0; //boolean to make sure only picked when not picked
+  char buffer[BUFFER_SIZE];
+  if (!is_it_picked) {
+
+    send(client_socket, MSG_WAIT "\n", strlen(MSG_WAIT), 0); //tells client to wait at start, changed to incorporate message from client
+    is_it_picked = 1;
+
+  }
 
   while (1) {
 
@@ -23,7 +25,7 @@ void subserver_logic(int client_socket) {
     buffer[output] = '\0';
     printf("received: %s\n", buffer);
 
-    output= send(client_socket, MSG_YOU_PICK "\n", strlen(MSG_YOU_PICK), 0); //changed this to incorporate message from client
+    output = send(client_socket, MSG_YOU_PICK "\n", strlen(MSG_YOU_PICK), 0); //changed this to incorporate message from client
 
 
     if (output <= 0) break;
@@ -31,6 +33,7 @@ void subserver_logic(int client_socket) {
   }
 
   close(client_socket);
+
 }
 
 int main(int argc, char *argv[]) {
