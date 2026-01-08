@@ -1,6 +1,13 @@
 #include "networking.h"
 #include "game.h"
 
+void send_safe(int socket, char *msg) {
+  if (write(socket, msg, strlen(msg)) < 0) {
+    perror("Write failed");
+    close(socket);
+    exit(1);
+  }
+}
 
 
 // handle part of (game) state and interaciton with the user
