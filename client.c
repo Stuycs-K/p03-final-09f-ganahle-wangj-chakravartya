@@ -1,19 +1,6 @@
 #include "networking.h"
 #include "game.h"
 
-// wanna add to game.h
-#define MSG_WAIT "WAIT"
-#define MSG_MATCH_REQUEST "MATCH?"
-#define MSG_YOU_PICK "PICK"
-#define MSG_YOU_GUESS "GUESS"
-#define MSG_RESULT_WIN "WIN"
-#define MSG_RESULT_LOSE "LOSE"
-#define MSG_RESULT_TIE "TIE"
-#define MSG_PLAY_AGAIN "AGAIN?"
-#define MSG_OPPONENT_LEFT "OPPONENT_LEFT"
-#define MIN_NUMBER 1
-#define MAX_NUMBER 10
-
 
 
 // handle part of (game) state and interaciton with the user
