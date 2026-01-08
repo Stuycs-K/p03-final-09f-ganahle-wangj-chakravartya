@@ -22,3 +22,7 @@ This document must be updated daily every time you finish a work session.
 - Copied stuff from server branch into this branch (5 min).
 --------------------------- CLASS ENDED -------------------------------
 - Tried to fix definition errors in server.c and client.c. Didn't succeed yet... (15 min)
+
+### 2026-01-08:
+- Definition issue disappeared.
+- Fixed seg fault issue by removing bad networking.c with working one. (15 min)
