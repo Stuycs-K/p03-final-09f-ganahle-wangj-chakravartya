@@ -21,6 +21,8 @@ void clientLogic(int server_socket) {
   while (game_active) {
     // read server message (from server)
     int bytes_read = read(server_socket,buff,(sizeof(buff)-1));
+    //Debug message
+    printf("bytes_read = %d\n", bytes_read);
 
     // check if the server disconnected
     if (bytes_read <= 0) {
