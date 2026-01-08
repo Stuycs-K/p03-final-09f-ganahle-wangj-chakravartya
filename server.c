@@ -3,6 +3,7 @@
 void subserver_logic(int client_socket) {
 
   char buffer[BUFFER_SIZE];
+  send(client_socket, MSG_WAIT "\n", strlen(MSG_WAIT), 0); //tells client to wait at start, changed to incorporate message from client
 
   while (1) {
 
@@ -18,7 +19,8 @@ void subserver_logic(int client_socket) {
     buffer[output] = '\0';
     printf("received: %s\n", buffer);
 
-    output = send(client_socket, buffer, strlen(buffer), 0);
+    output= send(client_socket, MSG_YOU_PICK "\n", strlen(MSG_YOU_PICK), 0); //changed this to incorporate message from client
+
 
     if (output <= 0) break;
 
