@@ -22,5 +22,5 @@ At home:
 
 ### 2026-01-08 - Brief description
 In class:
-- Added more comments and printf statements
+- Added more comments and printf statements (10 mins)
 - Tried to fix segfault by callocing (wasn't necessary), currently trying to fix client not being prompted (20 mins)
