@@ -11,4 +11,7 @@ spent 5 minutes at home reorganizing h file, and 5 minutes spent planning on wha
 ### 2024-01-07 - Brief description
 did some testing during class wth other branches
 
-Spent 75 mins at home cleaning up client.c and making small changes, debug messages, and a helper function, and thinking about how to make server.c more functional
+Spent 75 mins at home cleaning up client.c and making small changes, debug messages, and a helper function, and thinking about how to make server.c more functional. DONE IN BRANCH MVP, NOT THIS BRANCH NETWORKING
+
+### 2024-01-08 - Brief description
+Spent 35 mins before class adding booleans, making small improvements to server.c, and testing DONE IN BRANCH MVP, NOT THIS BRANCH NETWORKING
