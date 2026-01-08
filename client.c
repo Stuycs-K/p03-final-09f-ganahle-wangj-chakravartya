@@ -169,8 +169,8 @@ void clientLogic(int server_socket) {
       // print gneric server message
       printf("%s\n", buff);
     }
-  }
-  // end
+  }//loop end
+  // method end
 }//clientLogic end
 
 
@@ -196,11 +196,11 @@ int main(int argc, char * argv[]) {
   printf("Connected to server. \n");
 
   // start the game logic
-  printf("Try client logic method\n");
+  // printf("Try client logic method\n");
   clientLogic(server_socket);
 
   // close socket + clean up
-  printf("Cleaning up\n");
+  // printf("Cleaning up\n");
   close(server_socket);
   printf("Disconnected from server. \n");
 
