@@ -9,7 +9,6 @@ void send_safe(int socket, char *msg) {
   }
 }
 
-
 // handle part of (game) state and interaciton with the user
 void clientLogic(int server_socket) {
 
@@ -21,8 +20,7 @@ void clientLogic(int server_socket) {
   while (game_active) {
     // read server message (from server)
     int bytes_read = read(server_socket,buff,(sizeof(buff)-1));
-    //Debug message
-    printf("bytes_read = %d\n", bytes_read);
+    // printf("bytes_read = %d\n", bytes_read);
 
     // check if the server disconnected
     if (bytes_read <= 0) {
@@ -180,9 +178,11 @@ void clientLogic(int server_socket) {
 // main
 int main(int argc, char * argv[]) {
   char * IP = "127.0.0.1";
+  // printf("Stored IP: %s\n",IP);
 
   // arg to let client speicfy server ip
   if (argc > 1) {
+    // printf("Param included. Setting IP to %s",argv[1]);
     IP = argv[1]; // set to da custom one if they speciified one
   }
 
@@ -191,13 +191,16 @@ int main(int argc, char * argv[]) {
   printf("Connecting to server at %s:%s... \n",IP,PORT);
 
   // connect to the server
+  // printf("Attempting client tpc handshake\n");
   int server_socket = client_tcp_handshake(IP); // handshake
   printf("Connected to server. \n");
 
   // start the game logic
+  printf("Try client logic method\n");
   clientLogic(server_socket);
 
   // close socket + clean up
+  printf("Cleaning up\n");
   close(server_socket);
   printf("Disconnected from server. \n");
 

@@ -44,7 +44,7 @@ int server_setup() {
   fflush(stdout);
 
   //set socket to listen state
-  int l= listen(clientd, 10);
+  int l = listen(clientd, 10);
   err(l, "error in the listen section");
 
   //free the structs used by getaddrinfo
@@ -85,7 +85,7 @@ int client_tcp_handshake(char * server_address) {
 
   int serverd;//store the socket descriptor here
   //create the socket
-  serverd= socket(results->ai_family, results->ai_socktype, results->ai_protocol);
+  serverd = socket(results->ai_family, results->ai_socktype, results->ai_protocol);
   err(serverd, "serverdbottom");
 
   //connect() to the server
