@@ -26,3 +26,4 @@ This document must be updated daily every time you finish a work session.
 ### 2026-01-08:
 - Definition issue disappeared.
 - Fixed seg fault issue by removing bad networking.c with working one. (15 min)
+- Made test mvp branch for... testing possibly bad things (10 sec)
