@@ -1,5 +1,7 @@
 all: client server
 
+compile: client server
+
 client: client.o networking.o
 	@gcc -o client client.o networking.o
 
