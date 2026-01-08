@@ -1,9 +1,13 @@
 #include "networking.h"
 
 void subserver_logic(int client_socket) {
-
+  int is_it_picked=0; //boolean to make sure only picked when not picked
   char buffer[BUFFER_SIZE];
-  send(client_socket, MSG_WAIT "\n", strlen(MSG_WAIT), 0); //tells client to wait at start, changed to incorporate message from client
+  if (!is_it_picked){
+    send(client_socket, MSG_WAIT "\n", strlen(MSG_WAIT), 0); //tells client to wait at start, changed to incorporate message from client
+    is_it_picked=1;
+  }
+
 
   while (1) {
 

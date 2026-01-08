@@ -5,6 +5,7 @@ struct game {
 
   int chooser_number;
   int setpoint;
+  int round_over; // 1 for finished, 0 for not finished, for clarity and ease
 
 };
 
