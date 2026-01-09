@@ -25,7 +25,7 @@ void clientLogic(int server_socket) {
     // check if the server disconnected
     if (bytes_read <= 0) {
 
-      printf("Server disconnected. \n");
+      printf("Disconnected. \n");
       close(server_socket);
       exit(0);
 
@@ -235,5 +235,5 @@ int main(int argc, char * argv[]) {
 
   // end
   return 0;
-  
+
 }//main end

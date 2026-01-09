@@ -27,3 +27,9 @@ This document must be updated daily every time you finish a work session.
 - Definition issue disappeared.
 - Fixed seg fault issue by removing bad networking.c with working one. (15 min)
 - Made test mvp branch for... testing possibly bad things (10 sec)
+--------------------------- CLASS ENDED -------------------------------
+- Ran the new code but the game on the client side cuts off once the round ends (5 min)
+- Also the guesser is just always wrong regardless if they're right or actually wrong
+
+### 2026-01-09:
+- Changed the order of communication in server and clients (5 min)
