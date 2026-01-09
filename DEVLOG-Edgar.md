@@ -24,3 +24,6 @@ At home:
 In class:
 - Added more comments and printf statements (10 mins)
 - Tried to fix segfault by callocing (wasn't necessary), currently trying to fix client not being prompted (20 mins)
+At home:
+- Resolved undefined reference to game method by fixing makefile (15 mins)
+- Rewrote server.c to allow for correct game behavior in regards to client connection/interactions. (30 mins)
