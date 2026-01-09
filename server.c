@@ -41,7 +41,7 @@ void subserver_logic(int client1_socket, int client2_socket) {
   buffer[output] = '\0'; // i alr commented this above (null terminate)
   printf("Client 2 guessed: %s\n", buffer);
 
-  // czech if guess is correct
+  // check if guess is correct
   int correct = check_guess(&g, buffer);
 
   // send results to both clients
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
   while (1) {
     printf("Waiting for two players... \n");
 
-    // wWait for first client
+    // wait for first client
     int client1_socket = server_tcp_handshake(listen_socket);
     printf("Player 1 connected. \n");
     send(client1_socket, MSG_WAIT "\n",strlen(MSG_WAIT), 0);
@@ -97,6 +97,7 @@ int main(int argc, char *argv[]) {
     if (fork() == 0) {
       close(listen_socket);
       subserver_logic(client1_socket,client2_socket);
+      printf("Exit\n");
       exit(0);
     }
 

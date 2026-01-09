@@ -27,3 +27,7 @@ In class:
 At home:
 - Resolved undefined reference to game method by fixing makefile (15 mins)
 - Rewrote server.c to allow for correct game behavior in regards to client connection/interactions. (30 mins)
+
+### 2026-01-09 - Brief description
+In class:
+- 
