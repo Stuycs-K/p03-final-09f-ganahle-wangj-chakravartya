@@ -1,7 +1,8 @@
 #include "networking.h"
+#include "game.h"
 
 void subserver_logic(int client_socket) {
-
+  struct game g;
   int is_it_picked = 0; //boolean to make sure only picked when not picked
   char buffer[BUFFER_SIZE];
   if (!is_it_picked) {
@@ -24,7 +25,15 @@ void subserver_logic(int client_socket) {
 
     buffer[output] = '\0';
     printf("received: %s\n", buffer);
-
+    //if a client hasnt made a choice yet, their message must be their choice or else the code will crash
+    if (!is_it_picked){
+      int num= atoi(buffer); //like in client.c, this converts string to int form
+      game_init(&g, num);
+      is_it_picked=1;
+      printf("client, make your guess now!");
+      send(client_socket,MSG_YOU_GUESS "\n",strlen(MSG_YOU_GUESS),0);
+    }
+    //else client must have alr picked a number, so the server must say if the msg picked was MSG WIN or MSGLOSS. Ill do this later if I have time
     output = send(client_socket, MSG_YOU_PICK "\n", strlen(MSG_YOU_PICK), 0); //changed this to incorporate message from client
 
 
