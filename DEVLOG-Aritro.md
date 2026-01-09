@@ -15,3 +15,4 @@ Spent 75 mins at home cleaning up client.c and making small changes, debug messa
 
 ### 2024-01-08 - Brief description
 Spent 35 mins before class adding booleans, making small improvements to server.c, and testing DONE IN BRANCH MVP, NOT THIS BRANCH NETWORKING
+added changes to server.c to send messages to client only when it is picked, and included comments for win/loss plan
