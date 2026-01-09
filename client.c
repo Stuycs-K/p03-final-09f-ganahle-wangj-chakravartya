@@ -24,9 +24,11 @@ void clientLogic(int server_socket) {
 
     // check if the server disconnected
     if (bytes_read <= 0) {
+
       printf("Server disconnected. \n");
       close(server_socket);
       exit(0);
+
     }
 
     buff[bytes_read] = '\0';
@@ -44,17 +46,21 @@ void clientLogic(int server_socket) {
       fflush(stdout);
 
       if (fgets(buff,BUFFER_SIZE,stdin) == NULL) {
+
         perror("Error fgets. ");
         close(server_socket);
         exit(0);
+
       }
 
       // send a response to server (to server)
       write(server_socket,buff,1); // just 1 char (y/n)
 
       if (buff[0]!='Y' && buff[0]!='y') {
+
         printf("You declined the match. Disconnecting...\n");
         game_active = 0;
+
       }
 
     }
@@ -65,38 +71,47 @@ void clientLogic(int server_socket) {
       fflush(stdout);
 
       if (fgets(buff,BUFFER_SIZE,stdin) == NULL) {
+
         perror("Error fgets. ");
         close(server_socket);
         exit(0);
+
       }
 
       // validate input
       int num = atoi(buff); // turn string into int
       while ((num < MIN_NUMBER) || (num > MAX_NUMBER)) {
+
         printf("Invalid number! Pick a number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
         fflush(stdout);
 
         if (fgets(buff,BUFFER_SIZE,stdin) == NULL) {
+
           printf("Error fgets. ");
           close(server_socket);
           exit(0);
+
         }
         // try again
         num = atoi(buff);
+
       }
 
       // send number to server (to server)
       snprintf(buff,BUFFER_SIZE,"%d", num);
       write(server_socket, buff, strlen(buff));
       printf("You picked the number %d. \nWaiting for opponent to guess... \n",num);
+
     }
-    else if (strncmp(buff,MSG_YOU_GUESS,strlen(MSG_YOU_GUESS))==0) {
+    else if (strncmp(buff,MSG_YOU_GUESS,strlen(MSG_YOU_GUESS)) == 0) {
       // user needs to guess
       // take the server number from message. format: "GUESS:X"
       char * colon = strchr(buff, ':');
       int server_num = 0;
       if (colon) {
+
         server_num = atoi(colon + 1);
+
       }
 
       // your turn to guess
@@ -107,9 +122,11 @@ void clientLogic(int server_socket) {
       fflush(stdout);
 
       if (fgets(buff,BUFFER_SIZE,stdin) == NULL) {
+
         printf("Error fgets. ");
         close(server_socket);
         exit(0);
+
       }
 
       // make user input into game format
@@ -137,7 +154,9 @@ void clientLogic(int server_socket) {
       // game result
       char *  colon = strchr(buff,':');
       if (colon) {
+
         printf("\n--- Round Result: --- \n%s\n",colon+1); // show result
+
       }
 
     }
@@ -150,24 +169,31 @@ void clientLogic(int server_socket) {
         perror("Error fgets. ");
         close(server_socket);
         exit(0); // exit
+
       }
 
       // send response to server
       write(server_socket,buff,1);
 
       if (buff[0]!='Y' && buff[0]!='y') {
+
         printf("Thanks for playing. :) \n");
         game_active = 0; // break loop
+
       }
     }
+
     else if (strncmp(buff,MSG_OPPONENT_LEFT,strlen(MSG_OPPONENT_LEFT)) == 0) {
+
       // the opponent disconnected (opp dipped)
       printf("\nYour opponent has left the game. \n");
       game_active = 0; // break loop
+
     }
     else {
       // print gneric server message
       printf("%s\n", buff);
+
     }
   }//loop end
   // method end
@@ -177,13 +203,16 @@ void clientLogic(int server_socket) {
 
 // main
 int main(int argc, char * argv[]) {
+
   char * IP = "127.0.0.1";
   // printf("Stored IP: %s\n",IP);
 
   // arg to let client speicfy server ip
   if (argc > 1) {
+
     // printf("Param included. Setting IP to %s",argv[1]);
     IP = argv[1]; // set to da custom one if they speciified one
+
   }
 
   // welcoming client / say ip and port
@@ -206,4 +235,5 @@ int main(int argc, char * argv[]) {
 
   // end
   return 0;
+  
 }//main end

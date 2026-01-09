@@ -33,8 +33,10 @@ void subserver_logic(int client1_socket, int client2_socket) {
   output = recv(client2_socket, buffer, sizeof(buffer), 0);
   // if no client (-1)
   if (output <= 0) {
+
     printf("Client 2 closed. \n");
-    return; // en d
+    return; // end
+
   }
   buffer[output] = '\0'; // i alr commented this above (null terminate)
   printf("Client 2 guessed: %s\n", buffer);
@@ -45,6 +47,7 @@ void subserver_logic(int client1_socket, int client2_socket) {
   // send results to both clients
   char result_msg[BUFFER_SIZE];
   if (correct) {
+
     snprintf(result_msg, BUFFER_SIZE, MSG_RESULT_WIN ":Client 2 wins! Client 1 chose %d, server chose %d. \n",
              client1_number, g.setpoint);
     send(client2_socket, result_msg, strlen(result_msg),0); // send it
@@ -52,6 +55,7 @@ void subserver_logic(int client1_socket, int client2_socket) {
     snprintf(result_msg, BUFFER_SIZE, MSG_RESULT_LOSE ":You lose! You chose %d, server chose %d. \n",
              client1_number, g.setpoint);
     send(client1_socket,result_msg,strlen(result_msg),0); // send it
+
   }
   // if not correct
   else {
@@ -67,6 +71,7 @@ void subserver_logic(int client1_socket, int client2_socket) {
   // clean up
   close(client1_socket);
   close(client2_socket);
+
 }
 
 
@@ -99,5 +104,6 @@ int main(int argc, char *argv[]) {
     // printf("Clean up. \n");
     close(client1_socket);
     close(client2_socket);
+
   }//while
 }
